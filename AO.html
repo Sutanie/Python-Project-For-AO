@@ -27,28 +27,42 @@
       height: 100%;
       background-color: pink;
       overflow: hidden;
+      text-align: center; /* Center the hearts */
     }
 
-    /* Heart using SVG for better compatibility */
     .heart {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 300px;
-      height: 300px;
+      width: 400px;
+      height: 350px;
       background-color: red;
-      border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      clip-path: url(#heart-shape); /* SVG clip-path */
+      clip-path: path('M 0.5 0 C 0.2 0 0 0.3 0 0.55 C 0 0.8 0.3 1 0.5 1 C 0.7 1 1 0.8 1 0.55 C 1 0.3 0.8 0 0.5 0 Z');
     }
 
     .heart h1 {
       color: white;
-      font-size: 24px;
+      font-size: 22px;
       text-align: center;
+      padding: 10px;
+    }
+
+    .small-heart {
+      width: 40px; /* Size of the small hearts */
+      height: 40px;
+      margin: 5px; /* Space between hearts */
+      display: inline-block; /* Align hearts in a row */
+      animation: float 4s ease-in-out infinite; /* Add floating animation */
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
 
     .hello-kitty {
@@ -64,12 +78,6 @@
     .hello-kitty:nth-child(4) { bottom: 10%; right: 15%; }
     .hello-kitty:nth-child(5) { top: 40%; left: 70%; }
     .hello-kitty:nth-child(6) { bottom: 40%; right: 5%; }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-      100% { transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
@@ -77,20 +85,24 @@
     <!-- Floating Hello Kitty images -->
     <img src="https://github.com/Sutanie/Hello-Kitty/blob/main/adorable-hello-kitty-head-hd-transparent-png-735811696670199l8qnq79qof__1_-removebg-preview.png?raw=true" class="hello-kitty" alt="Hello Kitty">
     <img src="https://github.com/Sutanie/Hello-Kitty/blob/main/adorable-hello-kitty-head-hd-transparent-png-735811696670199l8qnq79qof__1_-removebg-preview.png?raw=true" class="hello-kitty" alt="Hello Kitty">
-    <img src="https://github.com/Sutanie/Hello-Kitty/blob/main/adorable-hello-kitty-head-hd-transparent-png-735811696670199l8qnq79qof__1_-removebg-preview.png?raw=true" class="hello-kittyalt="Hello Kitty">
+    <img src="https://github.com/Sutanie/Hello-Kitty/blob/main/adorable-hello-kitty-head-hd-transparent-png-735811696670199l8qnq79qof__1_-removebg-preview.png?raw=true" class="hello-kitty" alt="Hello Kitty">
     <img src="https://github.com/Sutanie/Hello-Kitty/blob/main/adorable-hello-kitty-head-hd-transparent-png-735811696670199l8qnq79qof__1_-removebg-preview.png?raw=true" class="hello-kitty" alt="Hello Kitty">
     <img src="https://github.com/Sutanie/Hello-Kitty/blob/main/adorable-hello-kitty-head-hd-transparent-png-735811696670199l8qnq79qof__1_-removebg-preview.png?raw=true" class="hello-kitty" alt="Hello Kitty">
     <img src="https://github.com/Sutanie/Hello-Kitty/blob/main/adorable-hello-kitty-head-hd-transparent-png-735811696670199l8qnq79qof__1_-removebg-preview.png?raw=true" class="hello-kitty" alt="Hello Kitty">
 
     <!-- Heart with the message -->
-    <svg width="0" height="0">
-      <clipPath id="heart-shape" clipPathUnits="objectBoundingBox">
-        <path d="M0.5,0.75 C0.25,0.9,0,0.5,0.5,0 C1,0.5,0.75,0.9,0.5,0.75"></path>
-      </clipPath>
-    </svg>
-
     <div class="heart">
       <h1>I love you, Adaeze!!!</h1>
+    </div>
+
+    <!-- Multiple Small Hearts under the message -->
+    <div style="position: absolute; top: 70%; left: 50%; transform: translateX(-50%); display: flex; flex-wrap: wrap; justify-content: center;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Red_Heart.svg/2048px-Red_Heart.svg.png" class="small-heart" alt="Small Heart">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Red_Heart.svg/2048px-Red_Heart.svg.png" class="small-heart" alt="Small Heart">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Red_Heart.svg/2048px-Red_Heart.svg.png" class="small-heart" alt="Small Heart">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Red_Heart.svg/2048px-Red_Heart.svg.png" class="small-heart" alt="Small Heart">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Red_Heart.svg/2048px-Red_Heart.svg.png" class="small-heart" alt="Small Heart">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Red_Heart.svg/2048px-Red_Heart.svg.png" class="small-heart" alt="Small Heart">
     </div>
   </div>
 </body>
