@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>I love you Adaeze</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script>
+      function setup() {
+        createCanvas(400, 400);
+        background('lightpink');
+        textAlign(CENTER);
+        textSize(24);
+        fill('white');
+        text('I love you, Adaeze', 200, 200);
+        drawHeart(200, 250, 150);
+      }
+
+      function drawHeart(x, y, size) {
+        fill('red');
+        beginShape();
+        vertex(x, y);
+        bezierVertex(x - size / 2, y - size / 2, x - size, y + size / 3, x, y + size);
+        bezierVertex(x + size, y + size / 3, x + size / 2, y - size / 2, x, y);
+        endShape(CLOSE);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
