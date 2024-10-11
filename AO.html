@@ -1,28 +1,97 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>I love you Adaeze</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <script>
-      function setup() {
-        createCanvas(400, 400);
-        background('lightpink');
-        textAlign(CENTER);
-        textSize(24);
-        fill('white');
-        text('I love you, Adaeze', 200, 200);
-        drawHeart(200, 250, 150);
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I love you, Adaeze</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      function drawHeart(x, y, size) {
-        fill('red');
-        beginShape();
-        vertex(x, y);
-        bezierVertex(x - size / 2, y - size / 2, x - size, y + size / 3, x, y + size);
-        bezierVertex(x + size, y + size / 3, x + size / 2, y - size / 2, x, y);
-        endShape(CLOSE);
-      }
-    </script>
-  </head>
-  <body></body>
+    body {
+      background-color: pink;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: pink;
+      overflow: hidden;
+    }
+
+    /* Heart using SVG for better compatibility */
+    .heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      background-color: red;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      clip-path: url(#heart-shape); /* SVG clip-path */
+    }
+
+    .heart h1 {
+      color: white;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .hello-kitty {
+      position: absolute;
+      width: 100px;
+      height: auto;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hello-kitty:nth-child(1) { top: 10%; left: 5%; }
+    .hello-kitty:nth-child(2) { top: 20%; right: 10%; }
+    .hello-kitty:nth-child(3) { bottom: 15%; left: 20%; }
+    .hello-kitty:nth-child(4) { bottom: 10%; right: 15%; }
+    .hello-kitty:nth-child(5) { top: 40%; left: 70%; }
+    .hello-kitty:nth-child(6) { bottom: 40%; right: 5%; }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Floating Hello Kitty images -->
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Hello_Kitty_Character_Picture.png" class="hello-kitty" alt="Hello Kitty">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Hello_Kitty_Character_Picture.png" class="hello-kitty" alt="Hello Kitty">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Hello_Kitty_Character_Picture.png" class="hello-kitty" alt="Hello Kitty">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Hello_Kitty_Character_Picture.png" class="hello-kitty" alt="Hello Kitty">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Hello_Kitty_Character_Picture.png" class="hello-kitty" alt="Hello Kitty">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/0a/Hello_Kitty_Character_Picture.png" class="hello-kitty" alt="Hello Kitty">
+
+    <!-- Heart with the message -->
+    <svg width="0" height="0">
+      <clipPath id="heart-shape" clipPathUnits="objectBoundingBox">
+        <path d="M0.5,0.75 C0.25,0.9,0,0.5,0.5,0 C1,0.5,0.75,0.9,0.5,0.75"></path>
+      </clipPath>
+    </svg>
+
+    <div class="heart">
+      <h1>I love you, Adaeze!!!</h1>
+    </div>
+  </div>
+</body>
 </html>
